@@ -6,6 +6,6 @@
 @Attribute hasCode NUMERIC
 @Attribute Classe  {Digitos, Digitos_letras, letras, sem_caracteres}
 @DATA
-1,5,400,219,1882365757,Digitos
-1,5,500,333,871639881,Digitos
+1,5,400,219,1747585824,Digitos
+1,5,500,333,1452126962,Digitos
 

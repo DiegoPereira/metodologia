@@ -6,15 +6,20 @@ import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 
+import weka.core.converters.ConverterUtils.DataSource;
+import weka.core.Instances;
+
 import javax.imageio.*;
 
 public class Tes {
 
 	/**
 	 * @param args
+	 * @throws Exception 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		init();
+		readArff("nome_do_arquivo.arff");
 	}
 	
 	private static BufferedImage img;
@@ -61,6 +66,17 @@ public class Tes {
         }
     }
     
+    public static void readArff(String address) throws Exception{
+    	DataSource source = new DataSource(address);
+    	 Instances data = source.getDataSet();
+    	 // setting class attribute if the data format does not provide this information
+    	 // For example, the XRFF format saves the class attribute information as well
+    	 System.out.println(data.classIndex());
+    	 System.out.println(data.numAttributes());
+    	 if (data.classIndex() == -1)
+    	   data.setClassIndex(data.numAttributes() - 1);
+    	
+    }
     
     public static String criaArquivoArff(ArrayList<String> array){
     	String texto = "@Relation Treinamento\n@Attribute transparencia NUMERIC\n@Attribute tipo NUMERIC\n@Attribute largura NUMERIC\n@Attribute comprimento NUMERIC\n@Attribute hasCode NUMERIC\n@Attribute Classe  {Digitos, Digitos_letras, letras, sem_caracteres}\n";
