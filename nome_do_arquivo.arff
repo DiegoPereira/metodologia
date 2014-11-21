@@ -1,0 +1,11 @@
+@Relation Treinamento
+@Attribute transparencia NUMERIC
+@Attribute tipo NUMERIC
+@Attribute largura NUMERIC
+@Attribute comprimento NUMERIC
+@Attribute hasCode NUMERIC
+@Attribute Classe  {Digitos, Digitos_letras, letras, sem_caracteres}
+@DATA
+1,5,400,219,1882365757,Digitos
+1,5,500,333,871639881,Digitos
+
